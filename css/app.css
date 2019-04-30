@@ -1,7 +1,6 @@
 html {
     box-sizing: border-box;
 }
-
 *,
 *::before,
 *::after {
@@ -23,7 +22,6 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -49,6 +47,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+    visibility: visible;
 }
 
 .deck .card {
@@ -85,25 +84,151 @@ h1 {
  * Styles for the Score Panel
  */
 
-.score-panel {
+.scorePanel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
 }
 
-.score-panel .stars {
+.scorePanel .stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.scorePanel .stars li {
     list-style: none;
     display: inline-block;
 }
 
-.score-panel .restart {
+.scorePanel .restart {
     float: right;
     cursor: pointer;
+}
+
+.congratulationsPopup {
+    background: linear-gradient(#aa7ecd, #ffffff);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    background-size: cover;
+    visibility: hidden;
+    z-index: 2;
+    position: fixed;
+    justify-content:center;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 24px;
+}
+p{
+    font-size: 24px;
+    line-height: 1.2em;
+    text-transform: none;
+}
+#playButton{
+    align-self: center;
+    width: 150px;
+    height:80px;
+    background-color:#02ccba;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    border: 0;
+
+}
+#timerBox{
+    width: 30px;
+    height: 10px;
+}
+.rubberBand{
+   transform: scale3d(1.15, 0.85, 1);
+   transform: scale3d(1.15, 0.85, 1);
+ }
+.heartBeat{
+   transform: scale(1);
+   transform: scale(1);
+   animation-duration: 2s;
+}
+.tada{
+   transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+   transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+}
+
+@media screen and (min-width:600px) and (max-width: 760px) {
+.container {
+    height: 1100px;
+    align-items: center;
+}
+.deck {
+    width: 450px;
+    min-height: 450px;
+    height: 450px;
+}
+.deck .card{
+    width:80px;
+    height:80px;
+}
+.deck .card.show {
+    font-size: 24px;
+}
+h1{
+    font-size: 32px;
+}
+.congratulationsPopup {
+    flex-wrap: wrap;
+    width:1000px;
+}
+}
+@media screen and (max-width:599px) {
+h1{
+    font-size: 24px;
+}
+.congratulationsPopup {
+    flex-wrap: wrap;
+}
+p{
+    font-size: 16px;
+}
+.container {
+    height: 640px;
+    align-items: center;
+}
+.deck {
+    width: 300px;
+    min-height: 300px;
+    height: 300px;
+}
+.deck .card{
+    width:50px;
+    height:50px;
+}
+.scorePanel{
+    text-align: center;
+    /*width: 345px;
+    margin-bottom: 10px;*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content:space-around;
+}
+#timerBox{
+    width: 60px;
+    height: 30px;
+}
+.deck .card.show {
+    font-size: 20px;
+}
+#playButton{
+    width: 120px;
+    height:60px;
+    font-size: 16px;
+}
 }
